@@ -124,5 +124,10 @@ namespace cis237assignment4
             //return the completed string
             return returnString;
         }
+
+        public void CategorizeByModel()
+        {
+
+        }
     }
 }

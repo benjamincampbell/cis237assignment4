@@ -40,6 +40,12 @@ namespace cis237assignment4
                     case 2:
                         userInterface.PrintDroidList();
                         break;
+
+                    case 3:
+                        break;
+
+                    case 4:
+                        break;
                 }
                 //Re-display the menu, and re-prompt for the choice
                 userInterface.DisplayMainMenu();
