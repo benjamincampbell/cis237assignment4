@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace cis237assignment4
 {
-    class GenericQueue<T>
+    class MergeSort
     {
-        public Node<T> HeadNode
+
+        public MergeSort(IComparable[] array)
         {
-            get { return HeadNode; }
-            set { HeadNode = value; }
+
         }
     }
 }

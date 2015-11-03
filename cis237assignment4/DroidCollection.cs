@@ -24,6 +24,8 @@ namespace cis237assignment4
             droidCollection = new IDroid[sizeOfCollection];
             //set length of collection to 0
             lengthOfCollection = 0;
+
+            AddHardcodedDroids();
         }
 
         //The Add method for a Protocol Droid. The parameters passed in match those needed for a protocol droid
@@ -128,6 +130,23 @@ namespace cis237assignment4
         public void CategorizeByModel()
         {
 
+        }
+
+        public void SortByPrice()
+        {
+
+        }
+
+        public void AddHardcodedDroids()
+        {
+            Add("AGRINIUM", "PROTOCOL", "RED", 1);
+            Add("AGRINIUM", "PROTOCOL", "RED", 5);
+            Add("AGRINIUM", "UTILITY", "RED", true, true, true);
+            Add("AGRINIUM", "UTILITY", "RED", false, false, false);
+            Add("AGRINIUM", "JANITOR", "RED", false, false, false, false, true);
+            Add("AGRINIUM", "JANITOR", "RED", true, true, false, true, false);
+            Add("AGRINIUM", "ASTROMECH", "RED", true, true, false, false, 1);
+            Add("AGRINIUM", "ASTROMECH", "RED", true, true, false, true, 10);
         }
     }
 }

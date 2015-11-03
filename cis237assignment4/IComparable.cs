@@ -6,12 +6,7 @@ using System.Threading.Tasks;
 
 namespace cis237assignment4
 {
-    class GenericQueue<T>
+    interface IComparable
     {
-        public Node<T> HeadNode
-        {
-            get { return HeadNode; }
-            set { HeadNode = value; }
-        }
     }
 }
