@@ -127,9 +127,45 @@ namespace cis237assignment4
             return returnString;
         }
 
-        public void CategorizeByModel()
+        public IDroid GetDroid(int Index)
         {
+            int i = 0;
 
+            while (i < Index)
+            {
+                i++;
+            }
+
+            return droidCollection[i];
+        }
+
+        public void CategorizeByModel()
+        {   //Method to categorize droids in the order of Astromech, Janitor, Utility, Protocol
+            GenericStack<IDroid> protocolStack = new GenericStack<IDroid>();
+            GenericStack<IDroid> utilityStack = new GenericStack<IDroid>();
+            GenericStack<IDroid> janitorStack = new GenericStack<IDroid>();
+            GenericStack<IDroid> astromechStack = new GenericStack<IDroid>();
+            foreach (IDroid droid in droidCollection)
+            {
+                switch (droid.GetModel())
+                {   //Go through the droidCollection and separate the droids into stacks by Model
+                    case "Protocol":
+                        protocolStack.Add(droid);
+                        break;
+                    case "Utility":
+                        utilityStack.Add(droid);
+                        break;
+                    case "Janitor":
+                        janitorStack.Add(droid);
+                        break;
+                    case "Astromech":
+                        astromechStack.Add(droid);
+                        break;
+                    default:
+                        break;
+                }
+
+            }
         }
 
         public void SortByPrice()

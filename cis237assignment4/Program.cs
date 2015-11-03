@@ -42,7 +42,7 @@ namespace cis237assignment4
                         break;
 
                     case 3:
-
+                        droidCollection.CategorizeByModel();
                         break;
 
                     case 4:
