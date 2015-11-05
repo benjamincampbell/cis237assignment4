@@ -31,11 +31,10 @@ namespace cis237assignment4
                 lastNode = newNode;
             }
             else
-            {//If it's not going to the the first node, we can just set the new node to the next of the last node.
-                lastNode.Next = newNode;
+            {//If nodes already exist, set the newNode's next to the current HeadNode
+                newNode.Next = HeadNode;
+                HeadNode = newNode;
             }
-            //And set the last node to now be the one we just added
-            lastNode = newNode;
         }
 
         public bool Delete(int Position)
