@@ -39,47 +39,33 @@ namespace cis237assignment4
 
         public bool Delete(int Position)
         {
-            Node<T> nodeDeletePointer = HeadNode;
-
-            if (Position == 1)
+            try
             {
-                Node<T> tempNode = HeadNode;
-                tempNode.Next = null;
-                HeadNode = tempNode;
-                return true;
-            }
-
-            if (Position > 1)
-            {
-                Node<T> tempNode = HeadNode;
-                Node<T> previousTempNode = null;
-                int i = 0;
-
-                while (tempNode != null)
-                {
-                    if (i == Position - 1)
-                    {
-                        previousTempNode.Next = tempNode.Next;
-
-                        if (tempNode.Next == null)
-                        {
-                            lastNode = previousTempNode;
-                        }
-
-                        tempNode.Next = null;
-
-                        return true;
+                if (Position == 1)
+                {   //Deleting the first item
+                    HeadNode = HeadNode.Next;
+                    return true;
+                }
+                else
+                {   //Deleting any other item, start counter at 2 since it's going to be 2 at minimum anyway
+                    int i = 2;
+                    Node<T> tempNode = HeadNode;
+                    Node<T> deleteNode = tempNode.Next;
+                    while (i < Position)
+                    {   //If Position = 2, this loop is skipped
+                        tempNode = tempNode.Next;
+                        deleteNode = deleteNode.Next;
+                        i++;
                     }
-
-                    i++;
-
-                    previousTempNode = tempNode;
-
-                    tempNode = tempNode.Next;
+                    //for example, tempNode = position 1 and deleteNode = position 2, so make 1.Next = position 3, we take 2 out of the set.
+                    tempNode.Next = deleteNode.Next;
+                    return true;
                 }
             }
-
-            return false;
+            catch
+            {
+                return false;
+            }
         }
 
         public Node<T> Retrieve(int Position)

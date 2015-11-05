@@ -11,7 +11,6 @@ namespace cis237assignment4
 
         //Add to end, take from front
         private Node<T> lastNode;
-        private Node<T> currentNode;
 
         public Node<T> HeadNode
         {
@@ -32,10 +31,66 @@ namespace cis237assignment4
                 lastNode = newNode;
             }
             else
-            {   //Set the newNode's next to the front of the queue, since we're adding to the front
-                newNode.Next = HeadNode;
-                //Set the HeadNode to now be the node we just added
-                HeadNode = newNode;
+            {   //Attach the new node onto the next property of the last node
+                lastNode.Next = newNode;
+                //And set the lastNode to now be the node we just added
+                lastNode = newNode;
+            }
+        }
+
+        public bool Delete(int Position)
+        {
+            try
+            {
+                if (Position == 1)
+                {   //Deleting the first item
+                    HeadNode = HeadNode.Next;
+                    return true;
+                }
+                else
+                {   //Deleting any other item, start counter at 2 since it's going to be 2 at minimum anyway
+                    int i = 2;
+                    Node<T> tempNode = HeadNode;
+                    Node<T> deleteNode = tempNode.Next;
+                    while (i < Position)
+                    {   //If Position = 2, this loop is skipped
+                        tempNode = tempNode.Next;
+                        deleteNode = deleteNode.Next;
+                        i++;
+                    }
+                    //for example, tempNode = position 1 and deleteNode = position 2, so make 1.Next = position 3, we take 2 out of the set.
+                    tempNode.Next = deleteNode.Next;
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public Node<T> Retrieve(int Position)
+        {
+            int i = 1;
+            Node<T> tempNode = HeadNode;
+
+            while (i < Position)
+            {
+                tempNode = tempNode.Next;
+                i++;
+            }
+
+            return tempNode;
+        }
+
+        public void AddStack(GenericStack<T> stack)
+        {
+            Node<T> tempNode = stack.HeadNode;
+
+            while (tempNode != null)
+            {
+                Add(tempNode.Droid);
+                tempNode = tempNode.Next;
             }
         }
     }

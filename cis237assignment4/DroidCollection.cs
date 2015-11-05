@@ -164,8 +164,14 @@ namespace cis237assignment4
                     default:
                         break;
                 }
-
             }
+
+            //Create the queue and add the stacks to it in the desired order
+            GenericQueue<IDroid> droidQueue = new GenericQueue<IDroid>();
+            droidQueue.AddStack(astromechStack);
+            droidQueue.AddStack(janitorStack);
+            droidQueue.AddStack(utilityStack);
+            droidQueue.AddStack(protocolStack);
         }
 
         public void SortByPrice()
