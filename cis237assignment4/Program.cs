@@ -46,7 +46,7 @@ namespace cis237assignment4
                         break;
 
                     case 4:
-
+                        droidCollection.SortByPrice();
                         break;
                     case 5:
                         Environment.Exit(0);

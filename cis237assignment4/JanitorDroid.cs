@@ -21,6 +21,7 @@ namespace cis237assignment4
             //Assign the values that the base constructor is not taking care of.
             this.hasTrashCompactor = HasTrashCompactor;
             this.hasVacuum = HasVacuum;
+            this.CalculateTotalCost();
         }
 
         //Override the CalculateCostOfOptions method.

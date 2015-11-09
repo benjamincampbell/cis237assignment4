@@ -24,6 +24,7 @@ namespace cis237assignment4
             //Assign the values for the constructor that are not handled by the base constructor
             this.hasFireExtinguisher = HasFireExtinquisher;
             this.numberOfShips = NumberOfShips;
+            this.CalculateTotalCost();
         }
 
         //Overridden method to calculate the cost of options. Uses the base class to do some of the calculations

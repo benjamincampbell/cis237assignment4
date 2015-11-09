@@ -71,5 +71,15 @@ namespace cis237assignment4
         {
             return this.model;
         }
+
+        public decimal CompareTo(object obj)
+        {   //Method to return the difference between this droid's total cost and the passed droid's total cost. Positive means this is more expensive.
+            IComparable otherDroid = (IComparable)obj;
+
+            decimal thisTotalCost = this.TotalCost;
+            decimal otherTotalCost = otherDroid.TotalCost;
+
+            return thisTotalCost - otherTotalCost;
+        }
     }
 }

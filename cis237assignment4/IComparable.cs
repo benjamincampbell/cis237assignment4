@@ -8,6 +8,7 @@ namespace cis237assignment4
 {
     interface IComparable
     {
+        decimal TotalCost { get; set; }
         string GetModel();
     }
 }

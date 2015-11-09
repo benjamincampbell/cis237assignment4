@@ -24,6 +24,7 @@ namespace cis237assignment4
             this.hasToolbox = HasToolbox;
             this.hasComputerConnection = HasComputerConnection;
             this.hasArm = HasArm;
+            this.CalculateTotalCost();
         }
 
         //virtual method to calculate the cost of the options. This method can be overridden in child classes

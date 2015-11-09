@@ -187,7 +187,17 @@ namespace cis237assignment4
 
         public void SortByPrice()
         {
+            MergeSort mergeSorter = new MergeSort();
+            IDroid[] droidCollectionTrimmed = new IDroid[lengthOfCollection];
+            for (int a = 0; a < lengthOfCollection; a++)
+            {   //This weeds out all of the null values, that mess up the merge sort
+                if (droidCollection[a] != null)
+                {
+                    droidCollectionTrimmed[a] = droidCollection[a];
+                }
+            }
 
+            droidCollection = (IDroid[])mergeSorter.sortArray(droidCollectionTrimmed);
         }
 
         public void AddHardcodedDroids()
@@ -198,7 +208,7 @@ namespace cis237assignment4
             Add("AGRINIUM", "UTILITY", "RED", false, false, false);
             Add("AGRINIUM", "JANITOR", "RED", false, false, false, false, true);
             Add("AGRINIUM", "JANITOR", "RED", true, true, false, true, false);
-            Add("AGRINIUM", "ASTROMECH", "RED", true, true, false, false, 1);
+            Add("AGRINIUM", "ASTROMECH", "RED", false, true, false, false, 1);
             Add("AGRINIUM", "ASTROMECH", "RED", true, true, false, true, 10);
         }
     }
