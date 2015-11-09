@@ -8,5 +8,6 @@ namespace cis237assignment4
 {
     interface IComparable
     {
+        string GetModel();
     }
 }

@@ -8,18 +8,19 @@ namespace cis237assignment4
 {
     class Node<T>
     {
+        private IComparable droid;
+        private Node<T> next;
 
         public Node<T> Next
         {
-            get { return Next; }
-            set { Next = value; }
+            get { return next; }
+            set { next = value; }
         }
 
         public IComparable Droid
         {
-            get { return Droid; }
-            set { Droid = value; }
-        }
-            
+            get { return droid; }
+            set { droid = value; }
+        }            
     }
 }

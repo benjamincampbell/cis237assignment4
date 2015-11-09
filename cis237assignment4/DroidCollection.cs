@@ -145,24 +145,28 @@ namespace cis237assignment4
             GenericStack<IDroid> utilityStack = new GenericStack<IDroid>();
             GenericStack<IDroid> janitorStack = new GenericStack<IDroid>();
             GenericStack<IDroid> astromechStack = new GenericStack<IDroid>();
+
             foreach (IDroid droid in droidCollection)
             {
-                switch (droid.GetModel())
-                {   //Go through the droidCollection and separate the droids into stacks by Model
-                    case "Protocol":
-                        protocolStack.Add(droid);
-                        break;
-                    case "Utility":
-                        utilityStack.Add(droid);
-                        break;
-                    case "Janitor":
-                        janitorStack.Add(droid);
-                        break;
-                    case "Astromech":
-                        astromechStack.Add(droid);
-                        break;
-                    default:
-                        break;
+                if (droid != null)
+                {
+                    switch (droid.GetModel())
+                    {   //Go through the droidCollection and separate the droids into stacks by Model
+                        case "PROTOCOL":
+                            protocolStack.Add(droid);
+                            break;
+                        case "UTILITY":
+                            utilityStack.Add(droid);
+                            break;
+                        case "JANITOR":
+                            janitorStack.Add(droid);
+                            break;
+                        case "ASTROMECH":
+                            astromechStack.Add(droid);
+                            break;
+                        default:
+                            break;
+                    }
                 }
             }
 
@@ -172,6 +176,13 @@ namespace cis237assignment4
             droidQueue.AddStack(janitorStack);
             droidQueue.AddStack(utilityStack);
             droidQueue.AddStack(protocolStack);
+
+            droidCollection = new IDroid[droidQueue.Depth];
+
+            for (int i = 0; i < droidQueue.Depth; i++)
+            {
+                droidCollection[i] = (IDroid)droidQueue.Retrieve(i + 1).Droid;
+            }
         }
 
         public void SortByPrice()

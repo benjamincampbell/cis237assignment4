@@ -11,11 +11,19 @@ namespace cis237assignment4
 
         //Add to end, take from front
         private Node<T> lastNode;
+        private Node<T> headNode;
+        private int depth;
 
         public Node<T> HeadNode
         {
-            get { return HeadNode; }
-            set { HeadNode = value; }
+            get { return headNode; }
+            set { headNode = value; }
+        }
+
+        public int Depth
+        {
+            get { return depth; }
+            set { depth = value; }
         }
 
         public void Add(IComparable droid)
@@ -87,11 +95,28 @@ namespace cis237assignment4
         {
             Node<T> tempNode = stack.HeadNode;
 
+            this.depth += stack.Depth;
+
             while (tempNode != null)
             {
                 Add(tempNode.Droid);
                 tempNode = tempNode.Next;
             }
+        }
+
+        public IComparable[] GetArray()
+        {
+            Node<T> tempNode = headNode;
+            IComparable[] arrayToReturn = new IComparable[this.depth];
+            int i = 0;
+
+            while (tempNode.Next != null)
+            {
+                arrayToReturn[i] = tempNode.Droid;
+                i++;
+            }
+
+            return arrayToReturn;
         }
     }
 }

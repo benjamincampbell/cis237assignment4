@@ -11,29 +11,38 @@ namespace cis237assignment4
         //Add and take from front
         private Node<T> lastNode;
         private Node<T> currentNode;
+        private Node<T> headNode;
+        private int depth;
 
         public Node<T> HeadNode
         {
-            get { return HeadNode; }
-            set { HeadNode = value; }
+            get { return headNode; }
+            set { headNode = value; }
+        }
+
+        public int Depth
+        {
+            get { return depth; }
+            set { depth = value; }
         }
 
         public void Add(IComparable droid)
         {
+            depth++;
             //The node to be added
             Node<T> newNode = new Node<T>();
             //And the Droid to be added
             newNode.Droid = droid;
 
-            if (HeadNode == null)
+            if (headNode == null)
             {//If the HeadNode doesn't exist, we'll put it here
-                HeadNode = newNode;
+                headNode = newNode;
                 lastNode = newNode;
             }
             else
             {//If nodes already exist, set the newNode's next to the current HeadNode
-                newNode.Next = HeadNode;
-                HeadNode = newNode;
+                newNode.Next = headNode;
+                headNode = newNode;
             }
         }
 
@@ -43,13 +52,13 @@ namespace cis237assignment4
             {
                 if (Position == 1)
                 {   //Deleting the first item
-                    HeadNode = HeadNode.Next;
+                    headNode = headNode.Next;
                     return true;
                 }
                 else
                 {   //Deleting any other item, start counter at 2 since it's going to be 2 at minimum anyway
                     int i = 2;
-                    Node<T> tempNode = HeadNode;
+                    Node<T> tempNode = headNode;
                     Node<T> deleteNode = tempNode.Next;
                     while (i < Position)
                     {   //If Position = 2, this loop is skipped
@@ -71,7 +80,7 @@ namespace cis237assignment4
         public Node<T> Retrieve(int Position)
         {
             //Start at the beginning
-            Node<T> tempNode = HeadNode;
+            Node<T> tempNode = headNode;
             //Set up our node to return
             Node<T> returnNode = null;
 
