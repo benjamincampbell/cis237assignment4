@@ -62,7 +62,7 @@ namespace cis237assignment4
                     else
                     {
 
-                        if (tempArray[j].TotalCost < tempArray[i].TotalCost)
+                        if (tempArray[j].CompareTo(tempArray[i]) < 0)
                         {   //If tempArray[j] is less than tempArray[i], insert j (since low values come first)
                             array[k] = tempArray[j];
                             j++;
